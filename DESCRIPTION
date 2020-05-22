@@ -1,13 +1,13 @@
 Package: sunits
 Type: Package
-Title: Simple Unitful Double Vectors
+Title: Simple Vector with Value and Units
 Version: 0.1.0
 Author: Jameel Alsalam
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: If you commonly find yourself carrying dual `unit` and `value`
     columns, then this package presents an alternative s3 vctrs class
     which carries them together. Allows easy transformation back and forth
-    from a dataframe column.
+    from a dataframe column. Implemented via `vctrs::rcrd` class.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

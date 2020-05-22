@@ -1,23 +1,22 @@
 
-#' Simple Double w/ Units Class
+#' Simple Double w/ Units Class (dbl + units attribute)
 #'
 #' @param x a double
 #' @param units character representing the units (may be mixed)
 #' @import vctrs
-#' @return record-style s3 `sunits_rcrd` object
-new_sunits_rcrd <- function(value = double(), units = character()) {
+#' @return record-style s3 `sunits` object
+new_sunits_dbl <- function(value = double(), units = character()) {
   vec_assert(value, double())
   vec_assert(units, character())
 
-  new_rcrd(
-    list(
-      "value" = value,
-      "units" = units),
-    class = "sunits_rcrd"
+  new_vctr(
+    value,
+    "units" = units,
+    class = "sunits_dbl"
   )
 }
 
-format.sunits_rcrd <- function(x, ...) {
+format.sunits_dbl <- function(x, ...) {
   glue::glue_data(
     .x = list(
       .value = format(field(x, "value")),
@@ -25,12 +24,12 @@ format.sunits_rcrd <- function(x, ...) {
     "{.value}{.units}", .na = "")
 }
 
-validate_sunits_rcrd <- function(x) {
+validate_sunits_dbl <- function(x) {
   if(FALSE) stop("Undefined error.")
 }
 
-sunits_rcrd <- function(x, units = NA_character_) {
-  new_sunits_rcrd(
+sunits_dbl <- function(x, units = NA_character_) {
+  new_sunits_dbl(
     value = as.double(x),
     units = vec_recycle(units, vec_size(x))
   )
