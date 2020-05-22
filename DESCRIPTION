@@ -13,4 +13,8 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     vctrs,
-    tidyr
+    tidyr,
+    magrittr
+RoxygenNote: 7.1.0
+Suggests: 
+    testthat
