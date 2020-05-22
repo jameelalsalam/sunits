@@ -16,7 +16,8 @@ Imports:
     tidyr,
     magrittr,
     glue,
-    stringr
+    stringr,
+    rlang
 RoxygenNote: 7.1.0
 Suggests: 
     testthat

@@ -1,18 +1,18 @@
-
+# 
 # sunits
 
 <!-- badges: start -->
 [![R build status](https://github.com/jameelalsalam/sunits/workflows/R-CMD-check/badge.svg)](https://github.com/jameelalsalam/sunits/actions)
 <!-- badges: end -->
 
-The goal of sunits is to ...
+The goal of sunits is to provide simple units s3 vector based on vctrs.
 
 ## Installation
 
 You can install the released version of sunits from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("sunits")
+remotes::install_github("jameelalsalam/sunits")
 ```
 
 ## Example
