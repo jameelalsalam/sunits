@@ -1,5 +1,5 @@
 
-#' Simple Double w/ Units Class
+#' Simple Record-Style Units Class
 #'
 #' @param x a double
 #' @param units character representing the units (may be mixed)

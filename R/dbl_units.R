@@ -1,5 +1,5 @@
 
-#' Simple Double w/ Units Class (dbl + units attribute)
+#' Simple Double w/ Units Class
 #'
 #' @param x a double
 #' @param units character representing the units (may be mixed)
@@ -19,8 +19,8 @@ new_sunits_dbl <- function(value = double(), units = character()) {
 format.sunits_dbl <- function(x, ...) {
   glue::glue_data(
     .x = list(
-      .value = format(field(x, "value")),
-      .units = stringr::str_c(" ", field(x, "units"))),
+      .value = format(vec_data(x)),
+      .units = stringr::str_c(" ", attr(x, "units"))),
     "{.value}{.units}", .na = "")
 }
 
@@ -30,7 +30,7 @@ validate_sunits_dbl <- function(x) {
 
 sunits_dbl <- function(x, units = NA_character_) {
   new_sunits_dbl(
-    value = as.double(x),
+    value = vec_cast(x, double()),
     units = vec_recycle(units, vec_size(x))
   )
 }

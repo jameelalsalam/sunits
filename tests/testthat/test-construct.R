@@ -1,5 +1,5 @@
 
-context("basic construction")
+context("basic construction of rcrd-style units")
 
 test_that("user-friendly constructor", {
 
