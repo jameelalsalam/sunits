@@ -18,7 +18,11 @@ new_sunits <- function(value = double(), units = character()) {
 }
 
 format.sunits <- function(x, ...) {
-  sprintf("%1.2f %s", field(x, "value"), field(x, "units"))
+  glue::glue_data(
+    .x = list(
+      .value = format(field(x, "value")),
+      .units = stringr::str_c(" ", field(x, "units"))),
+    "{.value}{.units}", .na = "")
 }
 
 validate_sunits <- function(x) {
