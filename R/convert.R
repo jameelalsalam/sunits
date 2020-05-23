@@ -21,8 +21,9 @@ convert.sunits_rcrd <- function(x, new_x, from, to) {
   locs <- vctrs::vec_as_location(vctrs::field(x, "units") == from, vctrs::vec_size(x))
 
   res <- x
-  field(res, locs) <- new_x
-  field(res, units) <- to
+
+  vec_slice(field(res, "value"), locs) <- vec_slice(field(new_x, "value"), locs)
+  vec_slice(field(res, "units"), locs) <- to
 
   res
 }
