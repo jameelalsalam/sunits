@@ -17,13 +17,16 @@ new_sunits_rcrd <- function(value = double(), units = character()) {
   )
 }
 
+#' @method format sunits_rcrd
+#' @import glue
 #' @export
 format.sunits_rcrd <- function(x, ...) {
-  glue::glue_data(
-    .x = list(
-      .value = format(field(x, "value")),
-      .units = stringr::str_c(" ", field(x, "units"))),
-    "{.value}{.units}", .na = "")
+
+  values <- format(field(x, "value"))
+  units  <- stringr::str_c(" ", field(x, "units"))
+
+  res <- as.character(glue("{values}{units}", .na = ""))
+  res
 }
 
 validate_sunits_rcrd <- function(x) {
@@ -40,6 +43,7 @@ sunits_rcrd <- function(x, units = NA_character_) {
 }
 
 #' Coerce dataframes and lists to sunits
+#'
 #' @param x dataframe or list to coerce
 #' @export
 as_sunits_rcrd <- function(x, value_from = "value", units_from = "units") {
