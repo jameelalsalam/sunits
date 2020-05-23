@@ -17,3 +17,11 @@ test_that("don't print NA units", {
   expect_equal(stringr::str_length(format(sunits_rcrd(1:2, NA_character_))), c(1, 1))
 
 })
+
+test_that("coercing dataframe equiv", {
+  expect_equal(
+    sunits_rcrd(1:2, "inches"),
+    as_sunits_rcrd(
+      data.frame(value = 1:2,
+                 units = rep("inches", 2))))
+})
