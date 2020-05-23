@@ -17,6 +17,7 @@ new_sunits_rcrd <- function(value = double(), units = character()) {
   )
 }
 
+#' @export
 format.sunits_rcrd <- function(x, ...) {
   glue::glue_data(
     .x = list(
