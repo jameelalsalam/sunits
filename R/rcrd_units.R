@@ -29,9 +29,22 @@ validate_sunits_rcrd <- function(x) {
   if(FALSE) stop("Undefined error.")
 }
 
+#' Make simple units
+#' @export
 sunits_rcrd <- function(x, units = NA_character_) {
   new_sunits_rcrd(
     value = vec_cast(x, double()),
     units = vec_recycle(units, vec_size(x))
+  )
+}
+
+#' Coerce dataframes and lists to sunits
+#' @param x dataframe or list to coerce
+#' @export
+as_sunits_rcrd <- function(x, value_from = "value", units_from = "units") {
+
+  new_sunits_rcrd(
+    value = vec_cast(x[[value_from]], double()),
+    units = vec_cast(x[[units_from]], character())
   )
 }
